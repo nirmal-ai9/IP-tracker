@@ -1,4 +1,4 @@
 // Replace with your deployed Vercel function URL.
 window.ORBIT_CONFIG = {
-  API_URL: 'https://YOUR-VERCEL-PROJECT.vercel.app/api/geo'
+  API_URL: 'https://ip-tracker-backend-beta.vercel.app/'
 };
