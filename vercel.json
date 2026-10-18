@@ -1,0 +1,1 @@
+{ "functions": { "api/geo.js": { "maxDuration": 10 } } }

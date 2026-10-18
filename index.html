@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b14"><title>Orbit — IP & Location</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <main class="shell">
+    <header class="topbar"><a class="brand" href="#"><span class="brand-mark">◉</span><span>ORBIT<span class="brand-muted"> / NETWORK</span></span></a><span class="live-pill"><i></i> PRIVATE SESSION</span></header>
+    <section class="hero">
+      <div class="hero-copy"><p class="eyebrow">NETWORK INTELLIGENCE <span>—</span> 01</p><h1>Your place<br>on the <em>internet.</em></h1>
+        <p class="subhead">Explore the approximate location your public IP address reveals. No account. No tracking history.</p>
+        <button id="detectBtn" class="primary-btn"><span>◎</span> Detect my connection <b>↗</b></button>
+        <p class="consent-note">Runs only when you click. Approximate network location, not GPS.</p>
+      </div>
+      <div class="globe-wrap"><div class="globe-label"><span><i class="pulse"></i> GLOBAL NETWORK</span><span class="mono">LIVE VIEW</span></div>
+        <div id="globeViz" aria-label="Interactive 3D globe showing approximate detected location"><div class="globe-placeholder"><div class="orbit-ring"></div><div class="globe-core">◎</div><span>Globe loads after detection</span></div></div>
+        <div class="globe-footer"><span>EARTH / 3D VIEW</span><span id="coordBadge">LAT — / LNG —</span></div>
+      </div>
+    </section>
+    <section class="section-head"><div><p class="eyebrow">CONNECTION SNAPSHOT</p><h2>Request details<span class="dot">.</span></h2></div><span class="updated" id="statusText">Waiting for your request</span></section>
+    <section class="stats-grid">
+      <article class="stat-card ip-card"><div class="card-top"><span>PUBLIC IP ADDRESS</span><span class="tiny-icon">⌁</span></div><div class="big-value mono" id="ipValue">— — — —</div><div class="card-bottom"><span id="ipType">Not detected</span><button id="copyBtn" class="text-btn" disabled>Copy IP ↗</button></div></article>
+      <article class="stat-card"><div class="card-top"><span>APPROX. LOCATION</span><span class="tiny-icon">⌖</span></div><div class="big-value" id="locationValue">Undetected</div><div class="card-bottom"><span>City / Region</span><span class="mini-tag" id="countryValue">—</span></div></article>
+      <article class="stat-card"><div class="card-top"><span>COORDINATES</span><span class="tiny-icon">⌗</span></div><div class="big-value mono coordinate-value" id="coordinatesValue">—, —</div><div class="card-bottom"><span>Approximate coordinates</span><span>WGS84</span></div></article>
+      <article class="stat-card"><div class="card-top"><span>NETWORK / ISP</span><span class="tiny-icon">⌁</span></div><div class="big-value isp-value" id="ispValue">Unavailable</div><div class="card-bottom"><span>Provider data</span><span class="mini-tag">BEST EFFORT</span></div></article>
+      <article class="stat-card"><div class="card-top"><span>ROUND-TRIP LATENCY</span><span class="tiny-icon">ϟ</span></div><div class="big-value" id="latencyValue">— <small>ms</small></div><div class="card-bottom"><span>Browser → API response</span><span class="mini-tag">RTT</span></div></article>
+      <article class="stat-card"><div class="card-top"><span>DATA SOURCE</span><span class="tiny-icon">◈</span></div><div class="big-value source-value" id="sourceValue">Not connected</div><div class="card-bottom"><span>Geolocation method</span><span class="mini-tag">ESTIMATED</span></div></article>
+    </section>
+    <footer class="footer"><div class="footer-brand">◉ ORBIT <span>NETWORK DASHBOARD</span></div><p>IP geolocation is approximate. VPNs, proxies, carrier routing, and database errors can change the result. This app does not request GPS permission or save a location history.</p><button id="refreshBtn" class="refresh-btn">↻ Refresh data</button></footer>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="./config.js"></script><script src="https://unpkg.com/globe.gl@2.37.0"></script><script src="./app.js"></script>
+</body></html>
